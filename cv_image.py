@@ -1,7 +1,6 @@
 import numpy as np
 import cv2
 import requests
-import matplotlib.pyplot as plt
 
 class Image:
     def __init__(self, image: any = None, url: str = None, code: int = cv2.COLOR_BGR2RGB) -> None:
@@ -9,13 +8,6 @@ class Image:
 
         if url is not None:
             self.from_url(url, code)
-
-    def show(self, title: str = "Image Preview", size: tuple[int, int] = (6, 6), code: int = cv2.COLOR_BGR2RGB) -> None:
-        plt.figure(figsize = size)
-        plt.imshow(cv2.cvtColor(self.image, code))
-        plt.axis('off')
-        plt.title(title)
-        plt.show()
 
     def from_url(self, url: str, code: int = cv2.COLOR_BGR2RGB) -> None:
         resp = requests.get(url)
