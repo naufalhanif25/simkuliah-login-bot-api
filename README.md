@@ -16,12 +16,10 @@ git clone https://github.com/<user>/simkuliah-login-bot-api.git
 cd simkuliah-login-bot-api
 
 # Install dependencies
-chmod +x run.sh
-python -m venv ocr-env
-./run.sh --install
+pip install -r requirements.txt
 
 # Run server
-./run.sh --run
+python app.py
 ```
 
 After running, the API will be available at:
