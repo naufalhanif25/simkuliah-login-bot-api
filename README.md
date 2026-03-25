@@ -1,7 +1,6 @@
 # SIMKULIAH Login Bot OCR API
 
-API service for solving **SIMKULIAH** login CAPTCHA using OCR.
-This API receives a CAPTCHA image (Base64) and returns the recognized text using an OCR pipeline built with **OpenCV** and **ddddocr**
+API service for solving **SIMKULIAH** login CAPTCHA using OCR. This API receives a CAPTCHA image (Base64) and returns the recognized text using an OCR pipeline built with **OpenCV** and **ddddocr**.
 
 ## Requirements
 
@@ -12,7 +11,7 @@ This API receives a CAPTCHA image (Base64) and returns the recognized text using
 
 ```bash
 # Clone repository
-git clone https://github.com/<user>/simkuliah-login-bot-api.git
+git clone https://github.com/naufalhanif25/simkuliah-login-bot-api.git
 cd simkuliah-login-bot-api
 
 # Install dependencies
@@ -22,8 +21,14 @@ pip install -r requirements.txt
 python app.py
 ```
 
-After running, the API will be available at:
+After running locally, the API will be available at:
 `http://localhost:5000`
+
+## Deployment
+
+The API has been deployed and is publicly accessible at:
+
+`https://simkuliah-login-bot-api.vercel.app/`
 
 ## API Endpoint
 
@@ -31,28 +36,50 @@ After running, the API will be available at:
 
 Solve **SIMKULIAH** CAPTCHA using OCR.
 
-`POST /solve`
+**Endpoint:**
+
+```
+POST /solve
+```
+
+**Full URL (Deployed):**
+
+```
+https://simkuliah-login-bot-api.vercel.app/solve
+```
+
+### Request Format
 
 The API expects a JSON request containing a Base64 encoded image.
 
 ```json
-{ "image": "data:image/png;base64,iVBORw0KGgoAAAANS..." }
+{
+    "image": "data:image/png;base64,iVBORw0KGgoAAAANS..."
+}
 ```
 
-The API will provide a response like this if the request is successful
+### Response Format
+
+#### Success
 
 ```json
-{ "text": "ABCDE" }
+{
+    "text": "ABCDE"
+}
 ```
 
-and like this if error.
+#### Error
 
 ```json
-{ "error": "Missing 'image' in JSON payload" }
+{
+    "error": "Missing 'image' in JSON payload"
+}
 ```
+
+---
 
 ## Notes
 
-- The API is designed specifically for **SIMKULIAH** CAPTCHA format.
-- Accuracy depends on the CAPTCHA complexity and preprocessing pipeline.
-- Intended for automation and educational purposes.
+* The API was initially designed specifically for **SIMKULIAH** CAPTCHA format, but has since been extended to support other CAPTCHA types.
+* Accuracy depends on the complexity of the CAPTCHA, model capabilities, and pre-processing flow.
+* Intended for automation and educational purposes.
