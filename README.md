@@ -1,6 +1,6 @@
 # SIMKULIAH Login Bot OCR API
 
-API service for solving **SIMKULIAH** login CAPTCHA using OCR. This API receives a CAPTCHA image (Base64) and returns the recognized text using an OCR pipeline built with **OpenCV** and **ddddocr**.
+This API receives a CAPTCHA image (Base64) and returns the recognized text using an OCR pipeline built with **OpenCV** for preprocessing and a custom-trained **EMNIST CNN model** executed via **ONNX Runtime** for character recognition.
 
 ## Requirements
 
